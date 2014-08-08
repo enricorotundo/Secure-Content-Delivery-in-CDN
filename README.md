@@ -1,6 +1,6 @@
 # Secure Content Delivery in Content Delivery Networks (CDN)
 
-This is my presentation held in 2014-05-12 during the Computer Network Security (CNS) course. 
+This is my presentation held in 2014-05-19 during the Computer Network Security (CNS) course. 
 Topic: Secure Content Delivery in Content Delivery Networks (CDN).
 
 ### live preview:
