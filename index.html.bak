@@ -15,8 +15,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<!-- <link rel="stylesheet" href="css/theme/night.css" id="theme"> -->
-		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<!-- <link rel="stylesheet" href="css/theme/simple.css" id="theme"> -->
 
 
 		<!-- For syntax highlighting -->
@@ -55,24 +55,12 @@
 				<section>
 					<h3>Outline:</h3>
 					<ol>
-						<li>How can we deliver content to users?
-							<ul>Is data replication secure?</ul>
-						</li>
-						<li>What Content Delivery Network (CDN) is?
-							<ul>Single server / CDN scheme</ul>
-							<ul>Potential attacks</ul>
-						</li>
-						<li>Secure Data Replication over Untrusted Hosts
-							<ul>
-								Dynamic queries on untrusted servers without state machine replication overhead?
-							</ul>
-						</li>
-						<li>Byzantine failures
-							<ul>Byzantine-fault tolerant NFS</ul>
-						</li>
-						<li>"Repeat and Compare"
-							<ul>Features</ul>
-						</li>
+						<li>Contnent delivery issues</li>
+						<li>Content Delivery Network (CDN)</li>
+						<li>CDNs issues</li>
+						<li>Secure Data Replication over Untrusted Hosts</li>
+						<li>Byzantine-fault tolerant NFS</li>
+						<li>"Repeat and Compare"</li>
 					</ol>
 				</section>
 
@@ -81,12 +69,12 @@
 					<!-- <p>With properites:</p> -->
 					<p><br/></p>
 					<ul>
-						<li>high availability</li>
-						<li>high performance</li>
+						<li>high availability;</li>
+						<li>high performance.</li>
 					</ul>
 					<p><br/></p>
 					<p><br/></p>
-					<p><b>Data replication:</b> fault tolerance and improved performance.</p>
+					<p><b>Data replication:</b> fault tolerance and impoved perfomance.</p>
 				</section>
 
 				<section>
@@ -101,7 +89,7 @@
 						<li>file sharing</li>
 						<li>cooperative storage</li>
 						<li>web caching</li>
-						<li>web names look-up</li>
+						<li>web names lookup</li>
 					</ul>
 
 					<aside class="notes">
@@ -124,7 +112,7 @@
 				<section>
 					<h3>Cited CDNs properties:</h3>
 					<ul>
-							<li class="fragment">resources donated by research community</li>
+							<li class="fragment">resources donated by research communuty</li>
 							<li class="fragment">trusted environment</li>
 							<li class="fragment">static content</li>
 					</ul>
@@ -140,9 +128,9 @@
 
 					<h3>Potential attacks:</h3>
 					<ul class="fragment">
-							<li>serving stale content (save bw)</li>
-							<li>bypassing content transformations (reduce CPU usage)</li>
-							<li>out-right modification (insert ads)</li>
+							<li>serving stale content (save bw);</li>
+							<li>bypassing content transformations (reduce CPU usage);</li>
+							<li>out-right modification (insert ads).</li>
 					</ul>
 				</section>
 
@@ -152,7 +140,9 @@
 
 				<section>
 					<h3>Secure Data Replication over Untrusted Hosts:</h3>
-					<table>
+					<p>There are two ways:</p>
+
+					<table class="reveal">
 						<thead>
 							<tr>
 								<th></th>
@@ -163,7 +153,7 @@
 						<tbody>
 							<tr>
 								<td><b>State signing</b></td>
-								<td>Data content is divided into subsets which are signed with a private key.</td>
+								<td>Data content is divded into subsets which are signed with a private key.</td>
 								<td>Only static data, restricted types of queries, state update on trusted servers.</td>
 							</tr>
 
@@ -175,6 +165,9 @@
 
 							</tbody>
 					</table>
+					<p><br/></p>
+					<p><br/></p>
+					<p>Which is the best?</p>
 				</section>
 
 				<section>
@@ -182,8 +175,8 @@
 					<h3>Dynamic queries on untrusted servers without state machine replication overhead?</h3>
 					<p>Combining:</p>
 					<ul>
-						<li>only <b>statistical guarantees</b> on correctness</li>
-						<li>background <b>auditing</b> mechanism</li>
+						<li>only <b>statistical guarantees</b> on correctness;</li>
+						<li>background <b>auditing</b> mechanism.</li>
 					</ul>
 					<p><br/></p>
 					<p>Assumption: Byzantine failures from untrusted components are rare.</p>
@@ -195,8 +188,8 @@
 					<p><br/></p>
 					<p>Caused by:</p>
 					<ul>
-						<li>malicious attacks</li>
-						<li>software errors</li>
+						<li>malicious attacks;</li>
+						<li>software errors.</li>
 					</ul>
 					<p><br/></p>
 					<p>We need a Byzantine-fault tolerant system!</p>
@@ -209,12 +202,12 @@
 					<p><br/></p>
 					<p>Properties:</p>
 					<ul>
-						<li>deterministic</li>
-						<li>replicated</li>
-						<li>with state</li>
-						<li>with read/write operations</li>
-						<li><i>safety:</i> behave like a centralized service</li>
-						<li><i>liveness:</i> clients receive replies</li>
+						<li>deterministic;</li>
+						<li>replicated;</li>
+						<li>with state;</li>
+						<li>with read/write operations.</li>
+						<li><i>safety:</i> behave like a centralized service;</li>
+						<li><i>liveness:</i> clients recieve replies.</li>
 					</ul>
 					<p><br/></p>
 					<p>Working on asynchronous Internet like environment!</p>
@@ -230,8 +223,8 @@
 					<p><br/></p>
 					<p>Peer-to-peer substrate:</p>
 					<ul>
-						<li> <i>repeat</i> content generation</li>
-						<li><i>compare</i> the results to detect misbehavior</li>
+						<li> <i>repeat</i> content generation;</li>
+						<li><i>compare</i> the results to detect misbehaviour.</li>
 					</ul>
 					<p><br/></p>
 					<p><br/></p>
@@ -241,10 +234,10 @@
 				<section>
 					<h3>Components:</h3>
 					<ul>
-						<li>origin servers (trusted)</li>
-						<li>supplier replicas (untrusted)</li>
-						<li>verifier replicas</li>
-						<li>clients</li>
+						<li>origin servers (trusted);</li>
+						<li>supplier replicas (untrusted);</li>
+						<li>verifier replicas;</li>
+						<li>clients.</li>
 					</ul>
 					<img src="imgs/RepeatAndCompareOverview.png" alt="RepeatAndCompareOverview" />
 				</section>
@@ -252,18 +245,18 @@
 				<section>
 					<h3>Requirements:</h3>
 					<ol>
-						<li>users can donate resources to the infrastructure</li>
-						<li>type of dynamic content should be restricted as little as possible</li>
-						<li>ensuring integrity must not rely on the ends (clients or servers)</li>
+						<li>users can donate resources to the infrastructure;</li>
+						<li>type of dynamic content should be restricted as little as possible;</li>
+						<li>ensuring integrity must not rely on the ends (clients or servers).</li>
 					</ol>
 				</section>
 
 				<section>
 					<h3>Main challenges:</h3>
 					<ol>
-						<li>monitor responses sent to clients</li>
-						<li>repeat response generation</li>
-						<li>isolate misbehaving nodes</li>
+						<li>monitor responses sent to clients;</li>
+						<li>repeat response generation;</li>
+						<li>isolate misbehaving nodes.</li>
 					</ol>
 					<!-- <p><br/>"he said, she said" problem</p> -->
 				</section>
@@ -273,28 +266,19 @@
 					<p>Cryptographically bind a content supplier and its output.</p>
 					<p><br/></p>
 					<ul>
-						<li>Origin servers -> content</li>
-						<li>Replicas -> dynamically generated output</li>
+						<li>Origin servers -> content;</li>
+						<li>Replicas -> dynamically generated output.</li>
 					</ul>
 					<p><br/></p>
 					<p><br/>Clients can forward a small sample record to replicas verifiers.</p>
 				</section>
 
 				<section>
-					<h3>Overhead:</h3>
-					<p>Attestation records production add some overhead.</p>
-					<p><br/></p>
-					<p><b>Content Producer Overhead:</b> it signs each attestation record with its private RSA key -> significant overhead.</p>
-					<p><br/></p>
-					<p><b>Verifier Overhead:</b> it has to completely reprocess computations so overhead can easily be 100% than content generation.</p>
-				</section>
-
-				<section>
 					<h3>Verifiers:</h3>
 					<ol>
-						<li>Locally <i>repeats</i> execution</li>
-						<li>Checks if the result matches the record sent by the client</li>
-						<li>When discover a bad replica it updates his list of suspected replicas</li>
+						<li>Locally <i>repeats</i> execution;</li>
+						<li>Checks if the result matches the record sent by the client.</li>
+						<li>When discover a bad replica it updates his list of suspected replicas.</li>
 					</ol>
 
 					<h4><br/><br/>How to spot malicious verifiers?</h4>
@@ -307,18 +291,18 @@
 					<p><br/></p>
 					<h3>Detection rather than prevention:</h3>
 					<ul>
-						<li>with just one well-behaved replica is possible to detect bad ones</li>
-						<li>detection is cheap (decoupled from request-response process)</li>
-						<li>good enough</li>
-						<li>discourage misbehaviour</li>
+						<li>with just one well-behaved replica is possible to detect bad ones;</li>
+						<li>detection is cheap (decoupled from request-response process);</li>
+						<li>good enough;</li>
+						<li>discourage misbehaviour.</li>
 					</ul>
 				</section>
 
 				<section>
-					<h3>Detection completeness:</h3>
-						<p>misbeahving nodes will be suspected by the system.</p>
-					<h3>Detection accuracy:</h3>
-						<p>well-behaved nodes will not be suspected by the system.</p>
+					<h3>Completeness:</h3>
+						<p>misbeahving nodes will be suspcted by the system.</p>
+					<h3>Accuracy:</h3>
+						<p>well-beahved nodes will not be suspected by the system.</p>
 				</section>
 
 				<section>
@@ -329,11 +313,11 @@
 				<section>
 					<h3>Decentralized Trust:</h3>
 					<ul>
-						<li>Verifiers keep local lists of misbehaving replicas</li>
-						<li>Trusted verifiers sends to the clients lists of unsuspected replicas</li>
+						<li>Verifiers keep local lists of misbehaving replicas;</li>
+						<li>Trusted verifiers sends to the clients lists of unsuspected replicas.</li>
 					</ul>
 					<p><br/></p>
-					<p><b>Completeness:</b> each misbehaving replica must be detected by all correct verifiers -> overhead is on the order of the number of replicas in the system.</p>
+					<p><b>Completeness:</b> each misbehaving replica must be detected by all correct verifiers -> overehead is on the order of the number of replicas in the system.</p>
 					<p><i>It's slow!</i></p>
 				</section>
 
@@ -342,9 +326,9 @@
 					<p>Rely on untrusted verifiers: good scaling properties.</p>
 					<p><br/></p>
 					<ul>
-						<li>as many verifiers as replicas in the CDN</li>
-						<li>single invalid record is a proof of misbehaviour</li>
-						<li>trusted verifiers process only the order of misbehaving replicas</li>
+						<li>as many verifiers as replicas in the CDN;</li>
+						<li>single invalid record is a proof of misbehaviour;</li>
+						<li>trusted verifers process only the order of misbehaving replicas.</li>
 					</ul>
 					<p><br/></p>
 					<p>Only probabilistic <b>completeness:</b> clients only forward an attestation record with probability $ p $ (to save bw).</p>
@@ -353,8 +337,8 @@
 				<section>
 					<h3>So with Untrusted and Trusted Verifiers we got:</h3>
 					<ul>
-						<li>attestation records -> detection <b>accuracy</b> guarantees</li>
-						<li>sampled forwarding approach -> probabilistic <b>completeness</b></li>
+						<li>attestation records -> detection <b>accuracy</b> guarantees;</li>
+						<li>sampled forwarding approach -> probabilistic <b>completeness</b>;</li>
 					</ul>
 					<p><br/></p>
 					<p>Decentralized approach is slower!</p>
@@ -365,16 +349,16 @@
 					<h3>Repeat:</h3>
 					<p>To perform a <i>Repeat</i>, a replica needs to set up an equivalent environment to the original:</p>
 					<ul>
-						<li>external inputs (client request, original content)</li>
-						<li>configuration parameters (server config., library versions)</li>
-						<li>code to repeat</li>
+						<li>external inputs (client request, original contenet);</li>
+						<li>configuration parameters (server config., library versions);</li>
+						<li>code to repeat.</li>
 					</ul>
 					<p><br/></p>
 					<p>Identified by:</p>
 					<ol>
-						<li>name</li>
-						<li>timestamp</li>
-						<li>value</li>
+						<li>name;</li>
+						<li>timestamp;</li>
+						<li>value.</li>
 					</ol>
 				</section>
 
@@ -382,8 +366,8 @@
 					<h3>?? Non-Repeatable Data: ??</h3>
 					<p>What about data that intinsically change over time?</p>
 					<ul>
-						<li><b>One-time values:</b> depend on exact time they where produced. Can be verified only by origin servers</li>
-						<li><b>Randomly generated:</b> applications use pseudo-random number gen. so they needs a <i>seed</i> (provided by origin for security) to obtain the same pseudo-random number</li>
+						<li><b>One-time values:</b> depend on exact time they where produced. Can be verified only by origin servers.</li>
+						<li><b>Randomly generated:</b> applications use pseudo-random number gen. so they needs a <i>seed</i> (provided by origin for security) to obtain the same pseudo-random number.</li>
 					</ul>
 				</section>
  -->
@@ -391,62 +375,52 @@
 					<h3>Compare:</h3>
 					<p>Composed by two stages:</p>
 					<ol>
-						<li>Forwarding attestation records to verifiers</li>
-						<li >Detecting misbeahving replicas</li>
-					</ol>
-				</section>
-
-				<section>
-					<h3>Compare 1/2:</h3>
-					<p>Forwarding attestation records to verifiers:</p>
-					<ol class="fragment">
-							<li>client checks attestation record consistency</li>
-							<li>forward record with probability $ p \le 1 $ to a random verifier</li>
-					</ol>
-				</section>
-
-				<section>
-					<h3>Compare 2/2:</h3>
-					<p>Detecting misbeahving replicas:</p>
-					<ul class="fragment">
+						<li>Forwarding attestation records to verifiers.
+							<ol class="fragment">
+								<li>client checks attestation record consistency;</li>
+								<li>forward record with probability $ p \le 1 $ to a random verifier.</li>
+							</ol>
+						</li>
+						<li >Detecting misbehving replicas.
+							<ul class="fragment">
 								<li><b>Centralized</b> detection:
 									<ol>
-										<li>untrusted verifiers receive records from clients</li>
-										<li>perform <i>Repeat</i></li>
-										<li>in case of misbehaving replica forward the record to a trusted verifier</li>
+										<li>untrusted verifiers recieve records from clients;</li>
+										<li>perform <i>Repeat</i>;</li>
+										<li>in case of misbehaving replica forward the record to a trusted verfier.</li>
 									</ol>
 								</li>
 								<li><b>Decentralized</b> detection: 
 									<ol>
-										<li>clients forward attestation records</li>
-										<li>verifiers locally repeats executions</li>
-										<li>a detected misbehaviour change in negative the related voting table</li>
-										<li>trusted verifiers (<i>friends</i>) which sends to the clients lists of unsuspected replicas</li>
+										<li>if an untrusted verifier detect misbehaviour it mantains a local voting table;</li>
+										<li>clients has <i>friends</i>: trusted verifiers which sends to the clients lists of unsuspected replicas.</li>
 									</ol>
 								</li>
 							</ul>
+						</li>
+					</ol>
 				</section>
 
 				<section>
 					<h3>Detection:</h3>
 					<p>Assumptions:</p>
 					<ul>
-						<li>no new nodes enter or leave</li>
-						<li>clients forward records with probability <i>p</i></li>
-						<li><i>f</i> misbehaving replicas</li>
-						<li><i>g</i> well-behaved replicas (constant over time)</li>
+						<li>no new nodes enter or leave;</li>
+						<li>clients forward records with probability <i>p</i>;</li>
+						<li><i>f</i> misbehaving replicas;</li>
+						<li><i>g</i> well-behaved replicas (constant over time);</li>
 					</ul>
 					<p><br/></p>
-					<p>Probability for a client to receive corrupt content: $$ f/(f + g) $$</p>
+					<p>Probabiltiy for a client to recieve corrupt content: $$ f/(f + g) $$</p>
 				</section>
 
 					<section>
 					<h3>Detection properties:</h3>
 					<ol>
-						<li>$ P_d $ of detecting a misbehaving replica</li>
-						<li>$ T $ it takes to detect all misbeahving replicas</li>
-					<!-- 	<li>rate of progress made by detection</li>
-						<li>damage done until all the misbehving replicas are detected</li> -->
+						<li>$ P_d $ of detecting a misbehaving replica;</li>
+						<li>$ T $ it takes to detect all misbehving replicas;</li>
+					<!-- 	<li>rate of progress made by detection;</li>
+						<li>damage done until all the misbehving replicas are detected.</li> -->
 					</ol>
 				</section>
 
@@ -455,22 +429,23 @@
 					<p>Depends on:</p>
 					<ul>
 						<li>$ b $ number of incriminating records sent</li>
-						<li>client forwarding to good verifier $ P_v $</li>
-						<p>$$ P_v = \frac{pg}{f + g} $$</p>
-						
+						<li>client forwarding to good verifier $ P_v $. <p><br/></p>
+							<p>$$ P_v = \frac{pg}{f + g} $$</p>
+							<p><br/></p>
+						</li>
 					</ul>
-					<p><br/></p>
-					<!-- <p>Fixed $ f $ (bad replicas) during the time that $ b $ records are sent:</p> -->
+					<p>Fixed $ f $ (bad replicas) during the time that $ b $ records are sent:</p>
 					<p>$$ P_d = 1 - \left(1 - \frac{pg}{f + g}\right)^b $$</p>
-					<p>If $ f $ is small then $ P_d $ improves as $ p $ increases; if $ f $ if large it masks effects of $ p $ (even if $ p = 1 $, $ P_d $ can reach 1 only increasing $ b $).  </p>
+					<p><br/></p>
+					<p>If $ f $ is small then $ P_d $ improves as $ p $ increases; if $ f $ il large it masks effects of $ p $ (even if $ p = 1 $, $ P_d $ can reach 1 only increasing $ b $).  </p>
 				</section>
 
 				<section>
-					<h3>2. $ T $ detect all misbeahving replicas:</h3>
+					<h3>2. $ T $ detect all misbehving replicas:</h3>
 					<p>Let's assume:</p>
 					<ol>
-						<li>no network or computational latency -> lower bound estimate</li>
-						<li>there are $ F $ misbeahving replicas initially, no new replicas enter the system</li>
+						<li>no network or computational latency -> lower bound estimate;</li>
+						<li>there are $ F $ misbehving replicas initially, no new replicas enter the system.</li>
 					</ol>
 					<p><br/></p>
 					<p>$$ T = \frac{F+g+g\ln{F}}{pg}$$</p>
@@ -482,15 +457,24 @@
 					<h3>Simulations:</h3>
 					<h4>Centralized vs decentralized, p = 0.1</h4>
 					<img src="imgs/simulationCentralizedVsDecentralized.png" alt="simulation Centralized Vs Decentralized" />
-					<p>Using a small set of trusted verifiers (size=4), misbeahving replicas are detected much faster than in the decentralized detection model.</p>
+					<p>Using a small set of trusted verifiers (size=4), misbehving replicas are detected much faster than in the decentralized detection model.</p>
+				</section>
+
+				<section>
+					<h3>Overhead:</h3>
+					<p>Attestation records production add some overhead.</p>
+					<p><br/></p>
+					<p><b>Content Producer Overhead:</b> it signs each attestation record with its private RSA key -> significant overhead;</p>
+					<p><br/></p>
+					<p><b>Verifier Overhead:</b> it has to completely reprocess computations so overhead can easily be 100% than content generation.</p>
 				</section>
 
 				<section>
 					<h3>Known issues:</h3>
 					<ol>
-						<li>Fault detection requires repeatable computations -> limited to determinism</li>
-						<li>Changing small number of high-value responses -> priority value in attestation records so high-value records have forward probability $ p = 1 $</li>
-						<li>No databases support</li>
+						<li>Fault detection requires repeatable computations -> limited to determinism;</li>
+						<li>Changing small number of high-value responses -> priority value in attestation records so high-value records have forward probabiltiy $ p = 1 $;</li>
+						<li>No databases support.</li>
 					</ol>
 					<p><br/></p>
 					<p>DoS: misbehaving nodes are motivated to serve in order to maximize damage -> not an issue.</p>
@@ -503,9 +487,9 @@
 				<section>
 					<h3>References:</h3>
 					<ol>
-						<li>N. Michalakis R. Soule, R. Grimm, "Ensuring Content Integrity for Untrusted Peer-to-Peer Content Distribution Networks", 4th USENIX Symposium on Networked Systems Design & Implementation (NSDI 2007)</li>
-						<li>B.C Popescu, B. Crispo, A. Tanenanbaum "Secure data Replication over Untrusted Hosts", Proceedings of the 5th Usenix UNIX Security Symposium, Vol. 5, Salt Lake City, Utah, USA, June 1995, pp. 199-208</li>
-						<li>M. Castro, B. Liskov, "Practical Byzantine Fault Tolerance", Proceedings of the 3rd Symposium on Operating Systems Design and Implementation OSDI 1999</li>
+						<li>N. Michalakis R. Soule, R. Grimm, "Ensuring Content Integrity for Untrusted Peer-to-Peer Content Distribution Networks", 4th USENIX Symposium on Networked Systems Design & Implementation (NSDI 2007).</li>
+						<li>B.C Popescu, B. Crispo, A. Tanenanbaum "Secure data Replication over Untrusted Hosts", Proceedings of the 5th Usenix UNIX Security Symposium, Vol. 5, Salt Lake City, Utah, USA, June 1995, pp. 199-208.</li>
+						<li>M. Castro, B. Liskov, "Practical Byzantine Fault Tolerance", Proceedings of the 3rd Symposium on Operating Systems Design and Implementation OSDI 1999.</li>
 						<li>http://en.wikipedia.org/wiki/Content_delivery_network</li>
 
 					</ol>
@@ -516,27 +500,21 @@
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="js/reveal.min.js"></script>
 
 		<script>
 
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: false,
+				controls: true,
 				progress: true,
 				slideNumber: true,
 				history: true,
 				center: true,
 
-				// The "normal" size of the presentation, aspect ratio will be preserved
-    			// when the presentation is scaled to fit different resolutions. Can be
-    			// specified using percentage units.
-			    width: 1024,
-			    height: 768,
-
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',

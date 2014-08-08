@@ -1873,14 +1873,32 @@ var Reveal = (function(){
 
 			// Display the number of the page using 'indexh - indexv' format
 			var indexString = indexh;
+			var slidesTotal = toArray( document.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR ) ).length;
 			if( indexv > 0 ) {
 				indexString += ' - ' + indexv;
 			}
 
-			dom.slideNumber.innerHTML = indexString;
+			if(indexString > 0) {
+				dom.slideNumber.innerHTML = indexString + '/' + (slidesTotal - 1);
+			}else{
+				dom.slideNumber.innerHTML = '';
+			}
 		}
 
 	}
+
+	// function onProgressClicked( event ) {
+
+	// 	onUserInput( event );
+
+	// 	event.preventDefault();
+
+	// 	var slidesTotal = toArray( document.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR ) ).length;
+	// 	var slideIndex = Math.floor( ( event.clientX / dom.wrapper.offsetWidth ) * slidesTotal );
+
+	// 	slide( slideIndex );
+
+	// }
 
 	/**
 	 * Updates the state of all control/navigation arrows.

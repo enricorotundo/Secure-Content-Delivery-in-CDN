@@ -83,7 +83,7 @@ body {
 
 .reveal h1 { font-size: 3.77em; }
 .reveal h2 { font-size: 2.11em;	}
-.reveal h3 { font-size: 1.55em;	}
+.reveal h3 { font-size: 1.55em;	font-weight:bold;}
 .reveal h4 { font-size: 1em;	}
 
 
@@ -351,8 +351,10 @@ body {
 .reveal table th,
 .reveal table td {
 	text-align: left;
-	padding-right: .3em;
-}
+	padding-right: .5em;
+	padding-top: .5em;
+/*	border: 1px solid white;
+*/}
 
 .reveal table th {
 	font-weight: bold;
@@ -471,7 +473,7 @@ body {
 .reveal .progress {
 	position: fixed;
 	display: none;
-	height: 3px;
+	height: 6px;
 	width: 100%;
 	bottom: 0;
 	left: 0;
@@ -508,7 +510,7 @@ body {
 	bottom: 15px;
 	opacity: 0.5;
 	z-index: 31;
-	font-size: 12px;
+	font-size: 28px;
 }
 
 /*********************************************
