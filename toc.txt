@@ -1,0 +1,38 @@
+How can we deliver content to users?
+	Is data replication secure?
+
+What Content Delivery Network (CDN) is?
+	Single server / CDN scheme
+	Cited CDNs properties
+	Potential attacks
+
+Secure Data Replication over Untrusted Hosts
+	Dynamic queries on untrusted servers without state machine replication overhead?
+
+Byzantine failures
+	Byzantine-fault tolerant NFS
+
+"Repeat and Compare"
+	Components
+	Requirements
+	Main challenges
+	Attestation records
+		Overhead
+	Verifiers
+	Content Integrity
+	Detection rather than prevention
+	Completeness
+	Accuracy
+	Detection approaches
+	Decentralized Trust
+	Untrusted and Trusted Verifiers
+	So with Untrusted and Trusted Verifiers we got
+	Repeat
+	Compare
+	Detection
+		Detection properties
+		Pd misbehaving replica is detected
+		T detect all misbeahving replicas
+		Simulations
+	Known issues
+	References

@@ -57,3 +57,563 @@
 
   </body>
 </html>
+=======
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Topic 10: Secure Content Delivery</title>
+
+		<meta name="description" content="Presentation of Topic 10: Secure Content Delivery for Computer and Network Scurity 2013-2013 course.">
+		<meta name="author" content="Enrico Rotundo">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<!-- <link rel="stylesheet" href="css/theme/night.css" id="theme"> -->
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Topic 10: Secure Content Delivery</h1>
+					<h3>19/05/2014</h3>
+					<p>
+						<small>Enrico Rotundo</small>
+					</p>
+				</section>
+
+				<section>
+					<h3>Outline:</h3>
+					<ol>
+						<li>How can we deliver content to users?
+							<ul>Is data replication secure?</ul>
+						</li>
+						<li>What Content Delivery Network (CDN) is?
+							<ul>Single server / CDN scheme</ul>
+							<ul>Potential attacks</ul>
+						</li>
+						<li>Secure Data Replication over Untrusted Hosts
+							<ul>
+								Dynamic queries on untrusted servers without state machine replication overhead?
+							</ul>
+						</li>
+						<li>Byzantine failures
+							<ul>Byzantine-fault tolerant NFS</ul>
+						</li>
+						<li>"Repeat and Compare"
+							<ul>Features</ul>
+						</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>How can we deliver content to users?</h3>
+					<!-- <p>With properites:</p> -->
+					<p><br/></p>
+					<ul>
+						<li>high availability</li>
+						<li>high performance</li>
+					</ul>
+					<p><br/></p>
+					<p><br/></p>
+					<p><b>Data replication:</b> fault tolerance and improved performance.</p>
+				</section>
+
+				<section>
+					<h3>Is data replication secure?:</h3>
+					<p>In Content Delivery Networks (CDN) datas are placed on hosts that are not directly controlled by the owner.</p>
+				</section>
+
+				<section>
+					<h3>What Content Delivery Network (CDN) is?</h3>
+					<p class="fragment">A large distributed system of servers used to serve content to end-users with high availability and high performance.</p>
+					<ul class="fragment">
+						<li>file sharing</li>
+						<li>cooperative storage</li>
+						<li>web caching</li>
+						<li>web names look-up</li>
+					</ul>
+
+					<aside class="notes">
+						This slide has fragments which are also stepped through in the notes window.
+					</aside>
+				</section>
+
+				<section>
+					<h3>Single server / CDN scheme</h3>
+					<img src="imgs/singleServervsCDN.png" alt="singleServervsCDN" />
+
+					<p>Existing CDNs:</p>
+					<ul>
+							<li>Na Kika</li>
+							<li>CoralCDN (300-400 servers)</li>
+							<li>CoDeeN</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Cited CDNs properties:</h3>
+					<ul>
+							<li class="fragment">resources donated by research community</li>
+							<li class="fragment">trusted environment</li>
+							<li class="fragment">static content</li>
+					</ul>
+				</section>
+
+				<section>
+					<!-- 
+					<h3><br/>What if:</h3>
+					<ul>
+							<li class="fragment">untrusted nodes</li>
+							<li class="fragment">dynamic generated content</li>
+					</ul> -->
+
+					<h3>Potential attacks:</h3>
+					<ul class="fragment">
+							<li>serving stale content (save bw)</li>
+							<li>bypassing content transformations (reduce CPU usage)</li>
+							<li>out-right modification (insert ads)</li>
+					</ul>
+				</section>
+
+				<section>
+					<p><i>We need security mechanisms!</i></p>
+				</section>
+
+				<section>
+					<h3>Secure Data Replication over Untrusted Hosts:</h3>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Key idea</th>
+								<th>Pros & Cons</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><b>State signing</b></td>
+								<td>Data content is divided into subsets which are signed with a private key.</td>
+								<td>Only static data, restricted types of queries, state update on trusted servers.</td>
+							</tr>
+
+							<tr>
+								<td><b>State machine replication</b></td>
+								<td>Execute operation on untrusted hosts and accept it only when a majority agree.</td>
+								<td>Random queries, updates on untrusted servers, operations performed multiple times on different hosts. Latency dictated by the slowest server.</td>
+							</tr>
+
+							</tbody>
+					</table>
+				</section>
+
+				<section>
+					<!-- <h3>How can we get dynamic queries on untrusted servers avoiding overhead associated with a state machine replication?</h3> -->
+					<h3>Dynamic queries on untrusted servers without state machine replication overhead?</h3>
+					<p>Combining:</p>
+					<ul>
+						<li>only <b>statistical guarantees</b> on correctness</li>
+						<li>background <b>auditing</b> mechanism</li>
+					</ul>
+					<p><br/></p>
+					<p>Assumption: Byzantine failures from untrusted components are rare.</p>
+				</section>
+
+				<section>
+					<h3>Byzantine failures:</h3>
+					<p>When components of a system fail in arbitrary ways.</p>
+					<p><br/></p>
+					<p>Caused by:</p>
+					<ul>
+						<li>malicious attacks</li>
+						<li>software errors</li>
+					</ul>
+					<p><br/></p>
+					<p>We need a Byzantine-fault tolerant system!</p>
+				</section>
+
+
+				<section>
+					<h3>Byzantine-fault tolerant NFS:</h3>
+					<p>Assumed $ n $ replicas, <br/>works when no more then $ \lfloor \frac{n - 1}{3} \rfloor $ replicas are faulty.</p>
+					<p><br/></p>
+					<p>Properties:</p>
+					<ul>
+						<li>deterministic</li>
+						<li>replicated</li>
+						<li>with state</li>
+						<li>with read/write operations</li>
+						<li><i>safety:</i> behave like a centralized service</li>
+						<li><i>liveness:</i> clients receive replies</li>
+					</ul>
+					<p><br/></p>
+					<p>Working on asynchronous Internet like environment!</p>
+				</section>
+
+				<section>
+					<h3>"Repeat and Compare"</h3>
+					<ul>
+						<li>content integrity</li>
+						<li>untrusted nodes</li>
+						<li>dynamic content generation</li>
+					</ul>
+					<p><br/></p>
+					<p>Peer-to-peer substrate:</p>
+					<ul>
+						<li> <i>repeat</i> content generation</li>
+						<li><i>compare</i> the results to detect misbehavior</li>
+					</ul>
+					<p><br/></p>
+					<p><br/></p>
+					<p>Build on top of Na Kika.</p>
+				</section>
+
+				<section>
+					<h3>Components:</h3>
+					<ul>
+						<li>origin servers (trusted)</li>
+						<li>supplier replicas (untrusted)</li>
+						<li>verifier replicas</li>
+						<li>clients</li>
+					</ul>
+					<img src="imgs/RepeatAndCompareOverview.png" alt="RepeatAndCompareOverview" />
+				</section>
+
+				<section>
+					<h3>Requirements:</h3>
+					<ol>
+						<li>users can donate resources to the infrastructure</li>
+						<li>type of dynamic content should be restricted as little as possible</li>
+						<li>ensuring integrity must not rely on the ends (clients or servers)</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Main challenges:</h3>
+					<ol>
+						<li>monitor responses sent to clients</li>
+						<li>repeat response generation</li>
+						<li>isolate misbehaving nodes</li>
+					</ol>
+					<!-- <p><br/>"he said, she said" problem</p> -->
+				</section>
+
+				<section>
+					<h3>Attestation records:</h3>
+					<p>Cryptographically bind a content supplier and its output.</p>
+					<p><br/></p>
+					<ul>
+						<li>Origin servers -> content</li>
+						<li>Replicas -> dynamically generated output</li>
+					</ul>
+					<p><br/></p>
+					<p><br/>Clients can forward a small sample record to replicas verifiers.</p>
+				</section>
+
+				<section>
+					<h3>Overhead:</h3>
+					<p>Attestation records production add some overhead.</p>
+					<p><br/></p>
+					<p><b>Content Producer Overhead:</b> it signs each attestation record with its private RSA key -> significant overhead.</p>
+					<p><br/></p>
+					<p><b>Verifier Overhead:</b> it has to completely reprocess computations so overhead can easily be 100% than content generation.</p>
+				</section>
+
+				<section>
+					<h3>Verifiers:</h3>
+					<ol>
+						<li>Locally <i>repeats</i> execution</li>
+						<li>Checks if the result matches the record sent by the client</li>
+						<li>When discover a bad replica it updates his list of suspected replicas</li>
+					</ol>
+
+					<h4><br/><br/>How to spot malicious verifiers?</h4>
+					<p>Untrusted verifiers are monitored by a small <b>core of trusted verifiers</b>.</p>
+				</section>
+
+				<section>
+					<h3>Content Integrity</h3>
+					<p>Optimistic approach: clients accepts the response but informs the CDN about it.</p>
+					<p><br/></p>
+					<h3>Detection rather than prevention:</h3>
+					<ul>
+						<li>with just one well-behaved replica is possible to detect bad ones</li>
+						<li>detection is cheap (decoupled from request-response process)</li>
+						<li>good enough</li>
+						<li>discourage misbehaviour</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Detection completeness:</h3>
+						<p>misbeahving nodes will be suspected by the system.</p>
+					<h3>Detection accuracy:</h3>
+						<p>well-behaved nodes will not be suspected by the system.</p>
+				</section>
+
+				<section>
+					<h3>Detection approaches:</h3>
+					<img src="imgs/approaches.png" alt="different approaches" />
+				</section>
+
+				<section>
+					<h3>Decentralized Trust:</h3>
+					<ul>
+						<li>Verifiers keep local lists of misbehaving replicas</li>
+						<li>Trusted verifiers sends to the clients lists of unsuspected replicas</li>
+					</ul>
+					<p><br/></p>
+					<p><b>Completeness:</b> each misbehaving replica must be detected by all correct verifiers -> overhead is on the order of the number of replicas in the system.</p>
+					<p><i>It's slow!</i></p>
+				</section>
+
+				<section>
+					<h3>Untrusted and Trusted Verifiers:</h3>
+					<p>Rely on untrusted verifiers: good scaling properties.</p>
+					<p><br/></p>
+					<ul>
+						<li>as many verifiers as replicas in the CDN</li>
+						<li>single invalid record is a proof of misbehaviour</li>
+						<li>trusted verifiers process only the order of misbehaving replicas</li>
+					</ul>
+					<p><br/></p>
+					<p>Only probabilistic <b>completeness:</b> clients only forward an attestation record with probability $ p $ (to save bw).</p>
+				</section>
+
+				<section>
+					<h3>So with Untrusted and Trusted Verifiers we got:</h3>
+					<ul>
+						<li>attestation records -> detection <b>accuracy</b> guarantees</li>
+						<li>sampled forwarding approach -> probabilistic <b>completeness</b></li>
+					</ul>
+					<p><br/></p>
+					<p>Decentralized approach is slower!</p>
+					<!-- <p>Detection cost il lower with trusted verifiers!</p> -->
+				</section>
+
+				<section>
+					<h3>Repeat:</h3>
+					<p>To perform a <i>Repeat</i>, a replica needs to set up an equivalent environment to the original:</p>
+					<ul>
+						<li>external inputs (client request, original content)</li>
+						<li>configuration parameters (server config., library versions)</li>
+						<li>code to repeat</li>
+					</ul>
+					<p><br/></p>
+					<p>Identified by:</p>
+					<ol>
+						<li>name</li>
+						<li>timestamp</li>
+						<li>value</li>
+					</ol>
+				</section>
+
+<!-- 				<section>
+					<h3>?? Non-Repeatable Data: ??</h3>
+					<p>What about data that intinsically change over time?</p>
+					<ul>
+						<li><b>One-time values:</b> depend on exact time they where produced. Can be verified only by origin servers</li>
+						<li><b>Randomly generated:</b> applications use pseudo-random number gen. so they needs a <i>seed</i> (provided by origin for security) to obtain the same pseudo-random number</li>
+					</ul>
+				</section>
+ -->
+				<section>
+					<h3>Compare:</h3>
+					<p>Composed by two stages:</p>
+					<ol>
+						<li>Forwarding attestation records to verifiers</li>
+						<li >Detecting misbeahving replicas</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Compare 1/2:</h3>
+					<p>Forwarding attestation records to verifiers:</p>
+					<ol class="fragment">
+							<li>client checks attestation record consistency</li>
+							<li>forward record with probability $ p \le 1 $ to a random verifier</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Compare 2/2:</h3>
+					<p>Detecting misbeahving replicas:</p>
+					<ul class="fragment">
+								<li><b>Centralized</b> detection:
+									<ol>
+										<li>untrusted verifiers receive records from clients</li>
+										<li>perform <i>Repeat</i></li>
+										<li>in case of misbehaving replica forward the record to a trusted verifier</li>
+									</ol>
+								</li>
+								<li><b>Decentralized</b> detection: 
+									<ol>
+										<li>clients forward attestation records</li>
+										<li>verifiers locally repeats executions</li>
+										<li>a detected misbehaviour change in negative the related voting table</li>
+										<li>trusted verifiers (<i>friends</i>) which sends to the clients lists of unsuspected replicas</li>
+									</ol>
+								</li>
+							</ul>
+				</section>
+
+				<section>
+					<h3>Detection:</h3>
+					<p>Assumptions:</p>
+					<ul>
+						<li>no new nodes enter or leave</li>
+						<li>clients forward records with probability <i>p</i></li>
+						<li><i>f</i> misbehaving replicas</li>
+						<li><i>g</i> well-behaved replicas (constant over time)</li>
+					</ul>
+					<p><br/></p>
+					<p>Probability for a client to receive corrupt content: $$ f/(f + g) $$</p>
+				</section>
+
+					<section>
+					<h3>Detection properties:</h3>
+					<ol>
+						<li>$ P_d $ of detecting a misbehaving replica</li>
+						<li>$ T $ it takes to detect all misbeahving replicas</li>
+					<!-- 	<li>rate of progress made by detection</li>
+						<li>damage done until all the misbehving replicas are detected</li> -->
+					</ol>
+				</section>
+
+				<section>
+					<h3>1. $ P_d $ misbehaving replica is detected:</h3>
+					<p>Depends on:</p>
+					<ul>
+						<li>$ b $ number of incriminating records sent</li>
+						<li>client forwarding to good verifier $ P_v $</li>
+						<p>$$ P_v = \frac{pg}{f + g} $$</p>
+						
+					</ul>
+					<p><br/></p>
+					<!-- <p>Fixed $ f $ (bad replicas) during the time that $ b $ records are sent:</p> -->
+					<p>$$ P_d = 1 - \left(1 - \frac{pg}{f + g}\right)^b $$</p>
+					<p>If $ f $ is small then $ P_d $ improves as $ p $ increases; if $ f $ if large it masks effects of $ p $ (even if $ p = 1 $, $ P_d $ can reach 1 only increasing $ b $).  </p>
+				</section>
+
+				<section>
+					<h3>2. $ T $ detect all misbeahving replicas:</h3>
+					<p>Let's assume:</p>
+					<ol>
+						<li>no network or computational latency -> lower bound estimate</li>
+						<li>there are $ F $ misbeahving replicas initially, no new replicas enter the system</li>
+					</ol>
+					<p><br/></p>
+					<p>$$ T = \frac{F+g+g\ln{F}}{pg}$$</p>
+					<p><br/></p>
+					<p>For large $ F $ it depends on how large is $ F $  compared to $ pg $, for small $ F $ detection is faster for higher values of $ p $.</p>
+				</section>
+
+				<section>
+					<h3>Simulations:</h3>
+					<h4>Centralized vs decentralized, p = 0.1</h4>
+					<img src="imgs/simulationCentralizedVsDecentralized.png" alt="simulation Centralized Vs Decentralized" />
+					<p>Using a small set of trusted verifiers (size=4), misbeahving replicas are detected much faster than in the decentralized detection model.</p>
+				</section>
+
+				<section>
+					<h3>Known issues:</h3>
+					<ol>
+						<li>Fault detection requires repeatable computations -> limited to determinism</li>
+						<li>Changing small number of high-value responses -> priority value in attestation records so high-value records have forward probability $ p = 1 $</li>
+						<li>No databases support</li>
+					</ol>
+					<p><br/></p>
+					<p>DoS: misbehaving nodes are motivated to serve in order to maximize damage -> not an issue.</p>
+				</section>
+
+				<section>
+					<h1>?</h1>
+				</section>
+
+				<section>
+					<h3>References:</h3>
+					<ol>
+						<li>N. Michalakis R. Soule, R. Grimm, "Ensuring Content Integrity for Untrusted Peer-to-Peer Content Distribution Networks", 4th USENIX Symposium on Networked Systems Design & Implementation (NSDI 2007)</li>
+						<li>B.C Popescu, B. Crispo, A. Tanenanbaum "Secure data Replication over Untrusted Hosts", Proceedings of the 5th Usenix UNIX Security Symposium, Vol. 5, Salt Lake City, Utah, USA, June 1995, pp. 199-208</li>
+						<li>M. Castro, B. Liskov, "Practical Byzantine Fault Tolerance", Proceedings of the 3rd Symposium on Operating Systems Design and Implementation OSDI 1999</li>
+						<li>http://en.wikipedia.org/wiki/Content_delivery_network</li>
+
+					</ol>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				slideNumber: true,
+				history: true,
+				center: true,
+
+				// The "normal" size of the presentation, aspect ratio will be preserved
+    			// when the presentation is scaled to fit different resolutions. Can be
+    			// specified using percentage units.
+			    width: 1024,
+			    height: 768,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/math/math.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
